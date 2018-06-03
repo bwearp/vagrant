@@ -19,6 +19,7 @@ $ vagrant init bwearp/f5-ansible
 This will create a Vagrantfile
 
 To execute the Vagrantfile which will then download and start the Virtual Device:
+
 $ vagrant up
 
 Once it has downloaded and started, log in by typing:
@@ -28,13 +29,17 @@ $ vagrant ssh
 Once you are logged onto the box, change to the root user by typing "su" and pressing enter. The password (if required) is "vagrant"
 
 Now you are root, you will now need to create a root ssh-key pair, and then copy the public cert to BOTH the bigip devices in your HA pair:
+
 $ ssh-keygen 
+
 Accept the defaults. The ssh-key pair will be created
 
 Copy the public cert to the BIG-IP devices
+
 $ ssh-copy-id -i /root/.ssh/id_rsa.pub root@<bigip-management-ip>
 
 Example:
+
 $ ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.1.203
 
 Then cd to the /home/vagrant/f5-ansible folder and list the contents. The contents in that folder are also synced/accessible from your local PC in the folder you created above in which the vagrant box is stored.
