@@ -9,15 +9,18 @@ To use the box:
 
 Once vagrant is installed, create a folder on your local PC/MAC where you would like to download/store the Virtual Device image; and then in a command prompt cd to that folder.
 You can now optionally install some vagrant plugins. On the command line run:
+
 $ vagrant plugin install vagrant-vbguest
+
 $ vagrant plugin install vagrant-rekey-ssh 
 
 This can take a few minutes...
 
 Once the optional plugins have installed, on the command line run the below
-$ vagrant init bwearp/f5-ansible
-This will create a Vagrantfile
 
+$ vagrant init bwearp/f5-ansible
+
+This will create a Vagrantfile
 To execute the Vagrantfile which will then download and start the Virtual Device:
 
 $ vagrant up
@@ -33,7 +36,6 @@ Now you are root, you will now need to create a root ssh-key pair, and then copy
 $ ssh-keygen 
 
 Accept the defaults. The ssh-key pair will be created
-
 Copy the public cert to the BIG-IP devices
 
 $ ssh-copy-id -i /root/.ssh/id_rsa.pub root@<bigip-management-ip>
